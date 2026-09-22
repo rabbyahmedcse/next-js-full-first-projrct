@@ -4,7 +4,7 @@ import Image from "next/image";
 import BookCard from "@/app/books/BookCard";
 import { IBook } from "@/type/books.type";
 const getBooks = async () => {
-  const res = await fetch("http://localhost:3000/booksData.json");
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SARVER_BASE_URL}/booksData.json`);
 
   if (!res.ok) {
     throw new Error("Failed to fetch books");
