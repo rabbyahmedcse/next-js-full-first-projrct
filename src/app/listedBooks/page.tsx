@@ -50,7 +50,7 @@ const sortedWishBooks = sortBooks(wishlist);
 
             {/* name of each tab group should be unique */}
             <div className="tabs tabs-lift">
-                <input type="radio" name="my_tabs_3" className="tab" aria-label={`Read Books (${readBooks.length})`} />
+                <input type="radio" name="my_tabs_3" className="tab" aria-label={`Read Books (${readBooks.length})`} defaultChecked  />
                 <div className="tab-content bg-base-100 border-base-300 p-6 space-y-2">
                     {
                         sortedReadBooks.length > 0 ? (
@@ -88,7 +88,7 @@ const sortedWishBooks = sortBooks(wishlist);
                     }
                 </div>
 
-                <input type="radio" name="my_tabs_3" className="tab" aria-label={`Whish List Book (${wishlist.length})`} defaultChecked />
+                <input type="radio" name="my_tabs_3" className="tab" aria-label={`Whish List Book (${wishlist.length})`} />
                 <div className="tab-content bg-base-100 border-base-300 p-6 space-y-2">
                     {
                         sortedWishBooks.length > 0 ? (
