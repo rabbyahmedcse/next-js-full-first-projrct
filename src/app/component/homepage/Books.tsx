@@ -3,15 +3,27 @@ import React from "react";
 import Image from "next/image";
 import BookCard from "@/app/books/BookCard";
 import { IBook } from "@/type/books.type";
+// const getBooks = async () => {
+//   const res = await fetch(`${process.env.NEXT_PUBLIC_SARVER_BASE_URL}/booksData.json`);
+
+//   if (!res.ok) {
+//     throw new Error("Failed to fetch books");
+//   }
+
+//   const data = await res.json();
+//   return data;
+// };
+
 const getBooks = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SARVER_BASE_URL}/booksData.json`);
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_SARVER_BASE_URL}/booksData.json`
+  );
 
   if (!res.ok) {
     throw new Error("Failed to fetch books");
   }
 
-  const data = await res.json();
-  return data;
+  return res.json();
 };
 
 const Books = async () => {

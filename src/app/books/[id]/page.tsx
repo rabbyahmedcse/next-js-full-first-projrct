@@ -11,8 +11,19 @@ interface IBookDetailsPageProps {
   }>;
 }
 
-const getBooks = async (): Promise<IBook[]> => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SARVER_BASE_URL}/booksData.json`);
+// const getBooks = async (): Promise<IBook[]> => {
+//   const res = await fetch(`${process.env.NEXT_PUBLIC_SARVER_BASE_URL}/booksData.json`);
+
+//   if (!res.ok) {
+//     throw new Error("Failed to fetch books");
+//   }
+
+//   return res.json();
+// };
+const getBooks = async () => {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_SARVER_BASE_URL}/booksData.json`
+  );
 
   if (!res.ok) {
     throw new Error("Failed to fetch books");
@@ -20,6 +31,9 @@ const getBooks = async (): Promise<IBook[]> => {
 
   return res.json();
 };
+
+
+
 
 const BookDetailsPage = async ({
   params,
