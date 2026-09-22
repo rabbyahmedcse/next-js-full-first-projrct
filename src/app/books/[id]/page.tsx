@@ -33,7 +33,7 @@ const getBooks = async () => {
     return res.json();
   } catch (error) {
     console.error("Error fetching books:", error);
-    throw new Error("Failed to load books");
+    return [];
   }
 };
 
