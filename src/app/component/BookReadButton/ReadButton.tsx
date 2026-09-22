@@ -9,7 +9,9 @@ const ReadButton = ({ book }: { book: IBook }) => {
 
     const { readBooks, setReadBooks } = useContext(BooksContext);
 
-
+    const alreadyRead = readBooks.some(
+      (item) => item.bookId === book.bookId
+    );
 
     const handleReadBook = () => {
         const alreadyRead = readBooks.some(
@@ -17,7 +19,7 @@ const ReadButton = ({ book }: { book: IBook }) => {
         );
        
         if (alreadyRead){
-            toast.success(`you have Already  "${book.bookName}"`);
+            toast.success(`you have Already read  "${book.bookName}"`);
             return;
         } 
       
@@ -27,8 +29,8 @@ const ReadButton = ({ book }: { book: IBook }) => {
 
     return (
         
-            <button className="btn w-full rounded-xl border-0 bg-slate-900 py-3 text-white transition duration-300 hover:bg-emerald-600" onClick={() => handleReadBook()} >
-                Read →
+            <button  className={`btn w-full rounded-xl border-0 py-3 transition duration-300 ${ alreadyRead ? "bg-emerald-500 text-white cursor-not-allowed" : "bg-slate-900 text-white hover:bg-emerald-600" }`} onClick={() => handleReadBook()} >
+                {alreadyRead? "✓ Already Read"  : "Read →"}
             </button>
        
     );

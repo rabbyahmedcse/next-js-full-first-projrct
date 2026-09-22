@@ -6,7 +6,7 @@ import ListBookCard from './ListBookCard';
 
 const ShowReadBooks = () => {
     const { readBooks, wishlist } = useContext(BooksContext);
-   const [sortBY,setSortBy]= useState<"rating" | "year"| "pages">();
+   const [sortBY,setSortBy]= useState<"rating" | "year"| "pages">("rating");
 
 const sortBooks=(books:IBook[])=>{
    const sortedbook = [...books];
@@ -27,6 +27,7 @@ const sortedReadBooks = sortBooks(readBooks);
 const sortedWishBooks = sortBooks(wishlist);
 
 
+
     return (
         <div className='container mx-auto py-[20px]'>
             <h2 className='my-4 bg-amber-200 rounded-3xl py-16 font-bold text-4xl text-center'> Listed books</h2>
@@ -35,7 +36,7 @@ const sortedWishBooks = sortBooks(wishlist);
                 <select
                 value={sortBY}
                 onChange={(e)=>setSortBy(e.target.value as "rating"|"year"|"pages")}
-                defaultValue="See type of sort by" className="select select-success">
+                 className="select select-success">
                     <option disabled={true}>Sort By</option>
                     <option value={"rating"}>Rating</option>
                     <option value={"year"}>Public Year</option>
